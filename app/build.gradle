@@ -2,7 +2,21 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+//apply plugin: 'trace-point' //无埋点插件应用
+//apply plugin: 'MyPlugin'
+
 apply plugin: 'android-aspectjx'
+
+//无埋点相关配置
+//noTracePoint{
+//    pluginName = "tracepoint" //插件名称随意命名
+//    //接收事件处理类（插件会将以下自定义类的相关方法插入目标方法中）
+//    targetClassName = 'com.xianyu.androidfm.InterceptEventHanlder'
+//    //开启会将修改后的文件copy一份到app/build/trace-point目录下，用于查看修改结果
+//    outputModifyFile = true
+//    //目标包名 数组类型（一般场景写业务模块包名即可）
+//    targetPackages = ['com.xianyu']
+//}
 
 
 android {
@@ -47,6 +61,45 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     api project(path: ':baseModule')
+    implementation files('build/intermediates/transforms/ajx/debug/0.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/1.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/3.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/4.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/5.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/6.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/7.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/8.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/9.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/10.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/11.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/12.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/13.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/14.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/15.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/16.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/17.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/18.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/19.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/20.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/21.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/22.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/23.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/24.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/25.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/26.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/27.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/28.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/29.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/30.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/31.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/32.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/33.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/34.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/35.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/36.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/37.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/38.jar')
+    implementation files('build/intermediates/transforms/ajx/debug/39.jar')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
