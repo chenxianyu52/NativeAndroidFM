@@ -1,3 +1,7 @@
+include ':lib_annotation'
+include ':lib_compiler'
+include ':homemodule'
+include ':common'
 include ':baseModule'
 include ':app'
 rootProject.name = "NativeAndroidFM"
