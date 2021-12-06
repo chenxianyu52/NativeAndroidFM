@@ -1,5 +1,7 @@
 package com.xianyu.androidfm
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.MenuItem
@@ -9,6 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.xianyu.androidfm.view.AppBottomBar
+import com.xianyu.common.log.LoggerUtil
+import java.lang.ref.SoftReference
+import java.util.*
 
 
 class MainActivity2 : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +43,35 @@ class MainActivity2 : AppCompatActivity(), BottomNavigationView.OnNavigationItem
         fragment?.id?.let { NavGraphBuilder.build(this, navController, it) }
 
         navView?.setOnNavigationItemSelectedListener(this)
+        intent.action = "hahah"
+        intent.data = Uri.parse("hahn")
+        intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+
+        LoggerUtil.d("MainActivity2","test message")
+        LoggerUtil.dObject("MainActivity2",true)
+        LoggerUtil.dBundle("MainActivity2",Bundle())
+        LoggerUtil.dIntent("MainActivity2",intent)
+        LoggerUtil.dObject("MainActivity2", SoftReference (0));
+        LoggerUtil.e("MainActivity2",NullPointerException ("this object is null!"));
+        val list: MutableList<String> = ArrayList()
+        for (i in 0..4) {
+            list.add("test$i")
+        }
+        LoggerUtil.dObject("MainActivity2",list)
+
+        val map: MutableMap<String, String> = HashMap()
+        for (i in 0..4) {
+            map.put("xyy$i", "test$i")
+        }
+        LoggerUtil.dObject("MainActivity2",map)
+
+        val json =
+            "{'xyy1':[{'test1':'test1'},{'test2':'test2'}],'xyy2':{'test3':'test3','test4':'test4'}}"
+        LoggerUtil.dJson("MainActivity2",json)
+
+        val xml =
+            "<xyy><test1><test2>key</test2></test1><test3>name</test3><test4>value</test4></xyy>"
+        LoggerUtil.dXml("MainActivity2",xml)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
