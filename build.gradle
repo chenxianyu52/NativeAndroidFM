@@ -1,4 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "gradleConfig/appConfig.gradle"
+apply from: "gradleConfig/despendenceConfig.gradle"
+
 buildscript {
     ext.kotlin_version = "1.4.32"
     repositories {
@@ -21,6 +24,7 @@ allprojects {
         jcenter()
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

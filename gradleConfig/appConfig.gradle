@@ -1,0 +1,37 @@
+ext {
+    androidVersion = [
+            minSdkVersion    : 26,
+            targetSdkVersion : 30,
+            versionCode      : 1,
+            versionName      : '1.0',
+            compileSdkVersion: 30,
+            buildToolsVersion: '30.0.3',
+            applicationId    : 'com.xianyu.androidfm'
+    ]
+}
+project.ext{
+    //统一设置APP配置
+    setDefaultConfig = { extension ->
+        //相对于APP中的build.gradle android {}的内容
+        extension.android {
+            compileSdkVersion ${androidVersion.compileSdkVersion}
+            buildToolsVersion ${androidVersion.buildToolsVersion}
+            defaultConfig {
+                minSdkVersion ${androidVersion.minSdkVersion}
+                targetSdkVersion ${androidVersion.targetSdkVersion}
+                versionCode ${androidVersion.versionCode}
+                versionName ${androidVersion.versionName}
+
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            }
+
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+            kotlinOptions {
+                jvmTarget = '1.8'
+            }
+        }
+    }
+}

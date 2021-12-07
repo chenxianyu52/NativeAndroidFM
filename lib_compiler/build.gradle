@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
 }
+def dependenceConfig = rootProject.ext.pomPath
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -8,8 +9,8 @@ java {
 }
 
 dependencies {
-    api 'com.alibaba:fastjson:1.2.59'//在其他module中会使用，所以依赖类型为api
-    implementation 'com.google.auto.service:auto-service:1.0-rc6'
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
+    api dependenceConfig.fastjson//在其他module中会使用，所以依赖类型为api
+    implementation dependenceConfig.googleAutoService
+    annotationProcessor dependenceConfig.googleAutoService
     implementation project(path: ':lib_annotation')
 }
