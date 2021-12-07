@@ -49,6 +49,7 @@ dependencies {
     implementation dependenceConfig.googleMaterial
     implementation dependenceConfig.androidxConstraintlayout
     implementation dependenceConfig.androidxLifecycleViewmodel
+    implementation dependenceConfig.androidxLifecycleLivedata
     testImplementation dependenceConfig.junit
     androidTestImplementation dependenceConfig.androidxJunit
     androidTestImplementation dependenceConfig.androidxEspresso

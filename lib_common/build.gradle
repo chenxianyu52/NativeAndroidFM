@@ -39,5 +39,6 @@ dependencies {
     implementation dependenceConfig.kotlinStdlib
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
+    implementation dependenceConfig.XXPermissions
     implementation dependenceConfig.logger
 }

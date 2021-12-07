@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.xianyu.annotation.FragmentDestination
 
 @FragmentDestination(pageUrl = "main/tabs/home", asStarter = true)

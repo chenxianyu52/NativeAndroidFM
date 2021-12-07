@@ -20,6 +20,9 @@ ext {
             //logger
             'logger'                  : "2.2.0",
 
+            // 权限
+            'XXPermissions'           : "13.2",
+
             // test
             'androidxEspresso'        : "3.2.0",
             'androidxJunit'           : "1.1.1",
@@ -52,6 +55,9 @@ ext {
 
             //log
             'logger'                       : "com.orhanobut:logger:${pomVersion.logger}",
+
+            // 权限
+            'XXPermissions'                : "com.github.getActivity:XXPermissions:${pomVersion.XXPermissions}",
 
             // test
             'androidxEspresso'             : "androidx.test.espresso:espresso-core:${pomVersion.androidxEspresso}",

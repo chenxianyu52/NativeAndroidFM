@@ -2,7 +2,6 @@ package com.xianyu.common.log
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import com.orhanobut.logger.*
 import java.util.*
 
