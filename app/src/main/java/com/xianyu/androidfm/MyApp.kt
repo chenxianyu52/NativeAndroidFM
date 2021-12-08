@@ -1,13 +1,15 @@
-package com.xianyu.androidfm;
+package com.xianyu.androidfm
 
-import android.app.Application;
+import android.app.Application
+import com.xianyu.common.log.LoggerUtil
+import com.xianyu.route.ARouterUtil
+import com.xianyu.route.koin.KoinUtil
 
-import com.xianyu.common.log.LoggerUtil;
-
-public class MyApp extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        LoggerUtil.init();
+class MyApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        LoggerUtil.init()
+        ARouterUtil.init(this)
+        KoinUtil.start(this)
     }
 }

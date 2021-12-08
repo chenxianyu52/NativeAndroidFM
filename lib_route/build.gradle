@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
-apply plugin: 'kotlin-kapt'
 
 def config = rootProject.ext.androidVersion
 def dependenceConfig = rootProject.ext.pomPath
@@ -42,20 +41,10 @@ android {
 }
 
 dependencies {
-
     implementation dependenceConfig.kotlinStdlib
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
-    implementation dependenceConfig.googleMaterial
-    implementation dependenceConfig.androidxConstraintlayout
-    implementation dependenceConfig.androidxLifecycleViewmodel
-    implementation dependenceConfig.androidxLifecycleLivedata
-    testImplementation dependenceConfig.junit
-    androidTestImplementation dependenceConfig.androidxJunit
-    androidTestImplementation dependenceConfig.androidxEspresso
-    implementation project(path: ':lib_annotation')
-    implementation project(path: ':lib_compiler')//需要使用lib_compiler中的fastjson
-    implementation project(path: ':lib_route')
-    kapt dependenceConfig.arouterCompile
-    kapt project(path: ':lib_compiler')
+    api dependenceConfig.arouterApi
+    annotationProcessor dependenceConfig.arouterCompile
+    api dependenceConfig.koin
 }

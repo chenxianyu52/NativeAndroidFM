@@ -14,7 +14,11 @@ ext {
             // kotlin
             'kotlinVersion'           : "1.4.32",
 
+            // koin
+            'koin'                    : "3.1.4",
+
             // 阿里
+            'arouter'                 : "1.5.2",
             'fastjson'                : "1.2.59",
 
             //logger
@@ -50,7 +54,12 @@ ext {
             // kotlin
             'kotlinStdlib'                 : "org.jetbrains.kotlin:kotlin-stdlib:${pomVersion.kotlinVersion}",
 
+            // koin
+            'koin'                         : "io.insert-koin:koin-android:${pomVersion.koin}",
+
             // 阿里
+            'arouterApi'                   : "com.alibaba:arouter-api:${pomVersion.arouter}",
+            'arouterCompile'               : "com.alibaba:arouter-compiler:${pomVersion.arouter}",
             'fastjson'                     : "com.alibaba:fastjson:${pomVersion.fastjson}",
 
             //log

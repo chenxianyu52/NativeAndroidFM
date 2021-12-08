@@ -24,7 +24,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
+                arguments = [moduleName: project.getName(), AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -73,4 +73,6 @@ dependencies {
     implementation project(path: ':baseModule')
     implementation project(path: ':module_home')
     implementation project(path: ':lib_common')
+    implementation project(path: ':lib_route')
+    kapt dependenceConfig.arouterCompile
 }
