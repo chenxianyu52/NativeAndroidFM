@@ -1,8 +1,10 @@
+include ':module_notification'
+include ':module_dash'
 include ':lib_route'
 include ':lib_annotation'
 include ':lib_compiler'
 include ':module_home'
 include ':lib_common'
-include ':baseModule'
+include ':module_aop'
 include ':app'
 rootProject.name = "NativeAndroidFM"

@@ -1,27 +1,24 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
-//apply plugin: 'android-aspectjx'
 apply plugin: 'kotlin-kapt'
 
 def config = rootProject.ext.androidVersion
 def dependenceConfig = rootProject.ext.pomPath
 
-
 android {
-
     compileSdkVersion config.compileSdkVersion
     buildToolsVersion config.buildToolsVersion
 
     defaultConfig {
-        applicationId config.applicationId
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName(), AROUTER_MODULE_NAME: project.getName()]
@@ -42,39 +39,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-
-
-//    aspectjx{
-//        enabled true
-//        exclude 'kotlin','com.google','com.squareup','com.alipay','org.apache'
-//    }
 }
 
 dependencies {
+
     implementation dependenceConfig.kotlinStdlib
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
     implementation dependenceConfig.googleMaterial
     implementation dependenceConfig.androidxConstraintlayout
-    implementation dependenceConfig.androidxNavigationFragment
-    implementation dependenceConfig.androidxNavigationUi
-    implementation dependenceConfig.androidxLifecycleLivedata
     implementation dependenceConfig.androidxLifecycleViewmodel
-    implementation dependenceConfig.androidxNavigationFragmentKtx
-    implementation dependenceConfig.androidxNavigationKtx
+    implementation dependenceConfig.androidxLifecycleLivedata
     testImplementation dependenceConfig.junit
     androidTestImplementation dependenceConfig.androidxJunit
     androidTestImplementation dependenceConfig.androidxEspresso
-
     implementation project(path: ':lib_annotation')
     implementation project(path: ':lib_compiler')//需要使用lib_compiler中的fastjson
-    kapt project(path: ':lib_compiler')
-//    implementation project(path: ':module_aop')
-    implementation project(path: ':module_home')
-    implementation project(path: ':module_dash')
-    implementation project(path: ':module_notification')
-    implementation project(path: ':lib_common')
     implementation project(path: ':lib_route')
     kapt dependenceConfig.arouterCompile
+    kapt project(path: ':lib_compiler')
 }

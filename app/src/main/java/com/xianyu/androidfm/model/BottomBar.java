@@ -29,5 +29,6 @@ public class BottomBar {
         public String pageUrl;
         public String title;
         public String tintColor;
+        public String icon;
     }
 }

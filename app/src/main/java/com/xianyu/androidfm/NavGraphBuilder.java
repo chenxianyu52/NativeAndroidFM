@@ -11,7 +11,7 @@ import androidx.navigation.NavigatorProvider;
 import androidx.navigation.fragment.FragmentNavigator;
 
 import com.xianyu.androidfm.model.Destination;
-import com.xianyu.basemodule.utils.AppGlobals;
+import com.xianyu.common.AppGlobals;
 
 import java.util.HashMap;
 

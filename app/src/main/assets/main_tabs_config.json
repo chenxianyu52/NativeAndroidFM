@@ -7,21 +7,24 @@
       "enable": true,
       "index": 0,
       "pageUrl": "main/tabs/home",
-      "title": "首页"
+      "title": "首页",
+      "icon": "ic_home_black_24dp"
     },
     {
       "size": 24,
       "enable": true,
       "index": 1,
       "pageUrl": "main/tabs/dash",
-      "title": "沙发"
+      "title": "沙发",
+      "icon": "ic_dashboard_black_24dp"
     },
     {
       "size": 24,
       "enable": true,
       "index": 2,
       "pageUrl": "main/tabs/notification",
-      "title": "我的"
+      "title": "我的",
+      "icon": "ic_notifications_black_24dp"
     }
   ]
 }

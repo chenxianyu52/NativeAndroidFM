@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -14,16 +15,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.xianyu.androidfm.AppConfig;
-import com.xianyu.androidfm.R;
 import com.xianyu.androidfm.model.BottomBar;
 import com.xianyu.androidfm.model.Destination;
-import com.xianyu.basemodule.utils.ScreenUtil;
+import com.xianyu.common.utils.DisplayUtil;
 
 import java.util.List;
 
 public class AppBottomBar extends BottomNavigationView {
-    private static int[] sIcons = new int[]{R.drawable.ic_home_black_24dp, R.drawable.ic_home_black_24dp,R.drawable.ic_home_black_24dp};
-
     private final BottomBar config;
 
     public AppBottomBar(Context context) {
@@ -60,14 +58,15 @@ public class AppBottomBar extends BottomNavigationView {
             if (itemId < 0) {
                 continue;
             }
-            Log.i("cxy2",tab.enable + " , " + tab.pageUrl + " , ");
+            Log.i("cxy2",tab.enable + " , " + tab.pageUrl + " , " + " , " + tab.icon);
             MenuItem menuItem = getMenu().add(0, itemId, tab.index, tab.title);
-            menuItem.setIcon(sIcons[tab.index]);
+            int drawableId = getResources().getIdentifier(tab.icon, "drawable", context.getPackageName());
+            menuItem.setIcon(getResources().getDrawable(drawableId));
         }
 
         //此处给按钮icon设置大小
         for (BottomBar.Tab tab : config.tabs) {
-            int iconSize = ScreenUtil.dp2Px(context,tab.size);
+            int iconSize = DisplayUtil.INSTANCE.dip2px(tab.size);
             Log.i("cxy",tab.pageUrl + " , " + tab.index);
             BottomNavigationMenuView menuView = (BottomNavigationMenuView) getChildAt(0);
             BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(tab.index);
