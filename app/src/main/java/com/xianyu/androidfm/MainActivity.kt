@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.xianyu.common.log.LoggerUtil
 import com.xianyu.route.homemodule.HelloRepository
+import com.xianyu.route.koin.injectOrNull
 import org.koin.android.ext.android.inject
 
 
@@ -31,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        val helloRepository: HelloRepository by inject()
-        findViewById<TextView>(R.id.text).text = helloRepository.giveHello()
+        val helloRepository: HelloRepository? by injectOrNull()
+        findViewById<TextView>(R.id.text).text = helloRepository?.giveHello()
     }
 
     override fun onStart() {

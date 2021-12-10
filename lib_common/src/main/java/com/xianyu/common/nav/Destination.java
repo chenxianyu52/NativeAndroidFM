@@ -1,4 +1,4 @@
-package com.xianyu.androidfm.model;
+package com.xianyu.common.nav;
 
 public class Destination {
     /**

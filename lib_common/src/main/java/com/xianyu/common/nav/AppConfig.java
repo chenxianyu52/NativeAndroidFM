@@ -1,12 +1,12 @@
-package com.xianyu.androidfm;
+package com.xianyu.common.nav;
 
 import android.content.res.AssetManager;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import com.xianyu.androidfm.model.BottomBar;
-import com.xianyu.androidfm.model.Destination;
+import com.xianyu.common.ui.bottom.BottomBar;
+import com.xianyu.common.ui.bottom.BottomBarTab;
 import com.xianyu.common.AppGlobals;
 
 import java.io.BufferedReader;
@@ -19,13 +19,15 @@ import java.util.List;
 
 public class AppConfig {
     private static HashMap<String, Destination> sDestConfig;
+    private static HashMap<String, BottomBarTab> sBottomTabConfig;
+    private static HashMap<String, KoinBean> sKoinConfig;
     private static BottomBar sBottomBar;
 
 
     public static HashMap<String, Destination> getDestConfig() {
         if (sDestConfig == null) {
             sDestConfig = new HashMap<>();
-            List<String> content = parseNavFile();
+            List<String> content = parseNavFile("_nav");
             for (String json : content) {
                 HashMap<String, Destination> destinationHashMap = JSON.parseObject(json, new TypeReference<HashMap<String, Destination>>() {
                 });
@@ -33,6 +35,32 @@ public class AppConfig {
             }
         }
         return sDestConfig;
+    }
+
+    public static HashMap<String, BottomBarTab> getTabConfig() {
+        if (sBottomTabConfig == null) {
+            sBottomTabConfig = new HashMap<>();
+            List<String> content = parseNavFile("_bottom_tab");
+            for (String json : content) {
+                HashMap<String, BottomBarTab> bottomTabHashMap = JSON.parseObject(json, new TypeReference<HashMap<String, BottomBarTab>>() {
+                });
+                sBottomTabConfig.putAll(bottomTabHashMap);
+            }
+        }
+        return sBottomTabConfig;
+    }
+
+    public static HashMap<String, KoinBean> getKoinConfig() {
+        if (sKoinConfig == null) {
+            sKoinConfig = new HashMap<>();
+            List<String> content = parseNavFile("_koin");
+            for (String json : content) {
+                HashMap<String, KoinBean> koinHashMap = JSON.parseObject(json, new TypeReference<HashMap<String, KoinBean>>() {
+                });
+                sKoinConfig.putAll(koinHashMap);
+            }
+        }
+        return sKoinConfig;
     }
 
     public static BottomBar getBottomBarConfig() {
@@ -77,7 +105,7 @@ public class AppConfig {
     /**
      * 解析assets下的所有的导航相关的文件
      */
-    private static List<String> parseNavFile(){
+    private static List<String> parseNavFile(String name){
         ArrayList jsons = new ArrayList();
         AssetManager assets = AppGlobals.getApplication().getResources().getAssets();
         String[] list = null;
@@ -89,7 +117,7 @@ public class AppConfig {
         if (list != null) {
             for (String item: list){
                 Log.i("cxy3",item);
-                if(item.contains("_nav")){
+                if(item.contains(name)){
                     jsons.add(parseFile(item));
                 }
             }

@@ -39,6 +39,15 @@ dependencies {
     implementation dependenceConfig.kotlinStdlib
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
+    implementation dependenceConfig.googleMaterial
+    implementation dependenceConfig.androidxConstraintlayout
+    implementation dependenceConfig.androidxNavigationFragment
+    implementation dependenceConfig.androidxNavigationUi
+    implementation dependenceConfig.androidxLifecycleLivedata
+    implementation dependenceConfig.androidxLifecycleViewmodel
+    implementation dependenceConfig.androidxNavigationFragmentKtx
+    implementation dependenceConfig.androidxNavigationKtx
     implementation dependenceConfig.XXPermissions
     implementation dependenceConfig.logger
+    api dependenceConfig.fastjson
 }

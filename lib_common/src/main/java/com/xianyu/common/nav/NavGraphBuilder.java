@@ -1,4 +1,4 @@
-package com.xianyu.androidfm;
+package com.xianyu.common.nav;
 
 import android.content.ComponentName;
 
@@ -10,10 +10,11 @@ import androidx.navigation.NavGraphNavigator;
 import androidx.navigation.NavigatorProvider;
 import androidx.navigation.fragment.FragmentNavigator;
 
-import com.xianyu.androidfm.model.Destination;
 import com.xianyu.common.AppGlobals;
 
 import java.util.HashMap;
+import java.util.Optional;
+
 
 public class NavGraphBuilder {
     public static void build(FragmentActivity activity, NavController controller, int containerId) {
@@ -45,6 +46,16 @@ public class NavGraphBuilder {
             }
         }
 
-        controller.setGraph(navGraph);
+        // 说明starter的被移除了，就随机默认
+        if(navGraph.getStartDestination() == 0){
+            if (destConfig.values().size() > 0) {
+                Optional<Destination> optionalDestination = destConfig.values().stream().findFirst();
+                optionalDestination.ifPresent(destination -> navGraph.setStartDestination(destination.id));
+            }
+        }
+
+        if (destConfig.values().size() > 0) {
+            controller.setGraph(navGraph);
+        }
     }
 }

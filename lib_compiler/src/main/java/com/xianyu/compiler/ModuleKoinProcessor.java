@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.auto.service.AutoService;
 import com.xianyu.annotation.ActivityDestination;
 import com.xianyu.annotation.FragmentDestination;
+import com.xianyu.annotation.ModuleKoinAnnotation;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,13 +34,13 @@ import javax.tools.StandardLocation;
 
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
-@SupportedAnnotationTypes({"com.xianyu.annotation.ActivityDestination", "com.xianyu.annotation.FragmentDestination"})
+@SupportedAnnotationTypes({"com.xianyu.annotation.ModuleKoinAnnotation"})
 @SupportedOptions("moduleName")
-public class NavProcessor extends AbstractProcessor {
+public class ModuleKoinProcessor extends AbstractProcessor {
     private Messager messager;
     private Filer filer;
     private String outFileName;
-    private final String TAG = "BottomTabProcessor";
+    private final String TAG = "ModuleKoinProcessor";
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
@@ -47,20 +48,18 @@ public class NavProcessor extends AbstractProcessor {
         messager = processingEnv.getMessager();
         filer = processingEnv.getFiler();
         //获取gradle中配置的内容作为生成文件的名字
-        outFileName = processingEnv.getOptions().get("moduleName") + "_nav.json";
-        messager.printMessage(Diagnostic.Kind.NOTE,TAG + ": moduleName:"+outFileName);
+        outFileName = processingEnv.getOptions().get("moduleName") + "_koin.json";
+        messager.printMessage(Diagnostic.Kind.NOTE, TAG + ": moduleName:" + outFileName);
     }
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         messager.printMessage(Diagnostic.Kind.NOTE, TAG + ": 开始通过注解生成json");
-        Set<? extends Element> fragmentElements = roundEnv.getElementsAnnotatedWith(FragmentDestination.class);
-        Set<? extends Element> activityElements = roundEnv.getElementsAnnotatedWith(ActivityDestination.class);
+        Set<? extends Element> koinElements = roundEnv.getElementsAnnotatedWith(ModuleKoinAnnotation.class);
 
-        if (!fragmentElements.isEmpty() || !activityElements.isEmpty()) {
+        if (!koinElements.isEmpty()) {
             HashMap<String, JSONObject> destMap = new HashMap<>();
-            handleDestination(fragmentElements, FragmentDestination.class, destMap);
-            handleDestination(activityElements, ActivityDestination.class, destMap);
+            handleKoinModuleAnnotation(koinElements, ModuleKoinAnnotation.class, destMap);
 
             //app/src/main/assets
             FileOutputStream fos = null;
@@ -69,7 +68,7 @@ public class NavProcessor extends AbstractProcessor {
                 FileObject resource = filer.createResource(StandardLocation.CLASS_OUTPUT, "", outFileName);
                 String resourcePath = resource.toUri().getPath();
                 messager.printMessage(Diagnostic.Kind.NOTE, TAG + ": resourcePath:" + resourcePath);
-                String appPath = resourcePath.substring(0,resourcePath.indexOf("build"));
+                String appPath = resourcePath.substring(0, resourcePath.indexOf("build"));
                 String assetsPath = appPath + "src/main/assets/";
 
                 File file = new File(assetsPath);
@@ -112,41 +111,24 @@ public class NavProcessor extends AbstractProcessor {
         return true;
     }
 
-    private void handleDestination(Set<? extends Element> elements, Class<? extends Annotation> annotationClaz, HashMap<String, JSONObject> destMap) {
+    private void handleKoinModuleAnnotation(Set<? extends Element> elements, Class<? extends Annotation> annotationClaz, HashMap<String, JSONObject> destMap) {
         for (Element element : elements) {
             TypeElement typeElement = (TypeElement) element;
-            String pageUrl = null;
             String clazName = typeElement.getQualifiedName().toString();
             int id = Math.abs(clazName.hashCode());
-            boolean needLogin = false;
-            boolean asStarter = false;
-            boolean isFragment = false;
+            String path = "";
             Annotation annotation = typeElement.getAnnotation(annotationClaz);
-            if (annotation instanceof FragmentDestination) {
-                FragmentDestination dest = (FragmentDestination) annotation;
-                pageUrl = dest.pageUrl();
-                asStarter = dest.asStarter();
-                needLogin = dest.needLogin();
-                isFragment = true;
-            } else if (annotation instanceof ActivityDestination) {
-                ActivityDestination dest = (ActivityDestination) annotation;
-                pageUrl = dest.pageUrl();
-                asStarter = dest.asStarter();
-                needLogin = dest.needLogin();
-                isFragment = false;
+            if (annotation instanceof ModuleKoinAnnotation) {
+                ModuleKoinAnnotation dest = (ModuleKoinAnnotation) annotation;
+                path = dest.path();
             }
 
-            if (destMap.containsKey(pageUrl)) {
-                messager.printMessage(Diagnostic.Kind.ERROR, TAG + " : 不同的页面不允许使用相同的pageUrl：" + clazName);
+            if (destMap.containsValue(path)) {
+                messager.printMessage(Diagnostic.Kind.ERROR, TAG + " : 一个模块只能有一个：" + clazName);
             } else {
                 JSONObject object = new JSONObject();
-                object.put("id", id);
-                object.put("needLogin", needLogin);
-                object.put("asStarter", asStarter);
-                object.put("pageUrl", pageUrl);
-                object.put("className", clazName);
-                object.put("isFragment", isFragment);
-                destMap.put(pageUrl, object);
+                object.put("path", path);
+                destMap.put(String.valueOf(id), object);
             }
         }
     }

@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.xianyu.androidfm.view.AppBottomBar
+import com.xianyu.common.ui.bottom.AppBottomBar
 import com.xianyu.common.log.LoggerUtil
+import com.xianyu.common.nav.NavGraphBuilder
 import java.lang.ref.SoftReference
 import java.util.*
 

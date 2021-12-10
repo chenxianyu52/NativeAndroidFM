@@ -46,5 +46,6 @@ dependencies {
     implementation dependenceConfig.androidxAppcompat
     api dependenceConfig.arouterApi
     annotationProcessor dependenceConfig.arouterCompile
+    implementation project(path: ':lib_common')
     api dependenceConfig.koin
 }

@@ -1,4 +1,4 @@
-package com.xianyu.androidfm;
+package com.xianyu.common.nav;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigator;
 import androidx.navigation.fragment.FragmentNavigator;
+
+import com.xianyu.common.nav.Destination;
 
 import java.lang.reflect.Field;
 import java.util.ArrayDeque;
