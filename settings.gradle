@@ -1,3 +1,4 @@
+include ':lib_net'
 include ':module_notification'
 include ':module_dash'
 include ':lib_route'

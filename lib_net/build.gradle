@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
-apply plugin: 'kotlin-kapt'
 
 def config = rootProject.ext.androidVersion
 def dependenceConfig = rootProject.ext.pomPath
@@ -19,11 +18,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName(), AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
     }
 
     buildTypes {
@@ -42,22 +36,15 @@ android {
 }
 
 dependencies {
-
     implementation dependenceConfig.kotlinStdlib
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
-    implementation dependenceConfig.googleMaterial
-    implementation dependenceConfig.androidxConstraintlayout
-    implementation dependenceConfig.androidxLifecycleViewmodel
-    implementation dependenceConfig.androidxLifecycleLivedata
-    testImplementation dependenceConfig.junit
-    androidTestImplementation dependenceConfig.androidxJunit
-    androidTestImplementation dependenceConfig.androidxEspresso
-    implementation project(path: ':lib_annotation')
-    implementation project(path: ':lib_compiler')//需要使用lib_compiler中的fastjson
-    implementation project(path: ':lib_route')
     implementation project(path: ':lib_common')
-    implementation project(path: ':lib_net')
-    kapt dependenceConfig.arouterCompile
-    kapt project(path: ':lib_compiler')
+    api dependenceConfig.koin
+    api dependenceConfig.androidRoom
+    implementation dependenceConfig.kotlinCoroutinesCore
+    implementation dependenceConfig.kotlinCoroutinesAndroid
+//    implementation dependenceConfig.retrofit
+//    implementation dependenceConfig.retrofitGson
+    implementation dependenceConfig.okhttpLoggingInterceptor
 }
