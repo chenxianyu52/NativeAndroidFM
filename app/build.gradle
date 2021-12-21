@@ -76,5 +76,6 @@ dependencies {
     implementation project(path: ':module_notification')
     implementation project(path: ':lib_common')
     implementation project(path: ':lib_route')
+    implementation project(path: ':lib_performance')
     kapt dependenceConfig.arouterCompile
 }
