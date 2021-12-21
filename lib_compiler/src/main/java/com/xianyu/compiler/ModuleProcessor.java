@@ -36,7 +36,7 @@ import javax.tools.StandardLocation;
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes({"com.xianyu.annotation.ModuleKoinAnnotation"})
 @SupportedOptions("moduleName")
-public class ModuleKoinProcessor extends AbstractProcessor {
+public class ModuleProcessor extends AbstractProcessor {
     private Messager messager;
     private Filer filer;
     private String outFileName;
@@ -48,7 +48,7 @@ public class ModuleKoinProcessor extends AbstractProcessor {
         messager = processingEnv.getMessager();
         filer = processingEnv.getFiler();
         //获取gradle中配置的内容作为生成文件的名字
-        outFileName = processingEnv.getOptions().get("moduleName") + "_koin.json";
+        outFileName = processingEnv.getOptions().get("moduleName") + "_module.json";
         messager.printMessage(Diagnostic.Kind.NOTE, TAG + ": moduleName:" + outFileName);
     }
 

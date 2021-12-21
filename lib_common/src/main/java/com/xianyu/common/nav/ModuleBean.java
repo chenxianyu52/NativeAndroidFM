@@ -1,5 +1,5 @@
 package com.xianyu.common.nav;
 
-public class KoinBean {
+public class ModuleBean {
     public String path;
 }

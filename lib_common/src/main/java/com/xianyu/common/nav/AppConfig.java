@@ -20,7 +20,7 @@ import java.util.List;
 public class AppConfig {
     private static HashMap<String, Destination> sDestConfig;
     private static HashMap<String, BottomBarTab> sBottomTabConfig;
-    private static HashMap<String, KoinBean> sKoinConfig;
+    private static HashMap<String, ModuleBean> sModuleConfig;
     private static BottomBar sBottomBar;
 
 
@@ -50,17 +50,17 @@ public class AppConfig {
         return sBottomTabConfig;
     }
 
-    public static HashMap<String, KoinBean> getKoinConfig() {
-        if (sKoinConfig == null) {
-            sKoinConfig = new HashMap<>();
-            List<String> content = parseNavFile("_koin");
+    public static HashMap<String, ModuleBean> getModuleConfig() {
+        if (sModuleConfig == null) {
+            sModuleConfig = new HashMap<>();
+            List<String> content = parseNavFile("_module");
             for (String json : content) {
-                HashMap<String, KoinBean> koinHashMap = JSON.parseObject(json, new TypeReference<HashMap<String, KoinBean>>() {
+                HashMap<String, ModuleBean> moduleBeanHashMap = JSON.parseObject(json, new TypeReference<HashMap<String, ModuleBean>>() {
                 });
-                sKoinConfig.putAll(koinHashMap);
+                sModuleConfig.putAll(moduleBeanHashMap);
             }
         }
-        return sKoinConfig;
+        return sModuleConfig;
     }
 
     public static BottomBar getBottomBarConfig() {
