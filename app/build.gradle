@@ -53,6 +53,7 @@ android {
 
 dependencies {
     implementation dependenceConfig.kotlinStdlib
+    implementation dependenceConfig.kotlinReflect
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
     implementation dependenceConfig.googleMaterial

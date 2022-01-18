@@ -21,7 +21,7 @@ ext {
 
             // 阿里
             'arouter'                 : "1.5.2",
-            'fastjson'                : "1.2.59",
+            'fastjson'                : "1.2.72",
 
             //logger
             'logger'                  : "2.2.0",
@@ -64,6 +64,7 @@ ext {
             'kotlinStdlib'                 : "org.jetbrains.kotlin:kotlin-stdlib:${pomVersion.kotlinVersion}",
             'kotlinCoroutinesCore'         : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${pomVersion.kotlincoroutines}",
             'kotlinCoroutinesAndroid'      : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${pomVersion.kotlincoroutines}",
+            'kotlinReflect'                : "org.jetbrains.kotlin:kotlin-reflect:${pomVersion.kotlinVersion}",
 
             // koin
             'koin'                         : "io.insert-koin:koin-android:${pomVersion.koin}",
@@ -84,7 +85,7 @@ ext {
             'retrofitGson'                 : "com.squareup.retrofit2:converter-gson:${pomVersion.retrofit}",
 
             // okhttp
-            'okhttp':"com.squareup.okhttp3:okhttp:${pomVersion.okhttp}",
+            'okhttp'                       : "com.squareup.okhttp3:okhttp:${pomVersion.okhttp}",
             'okhttpLoggingInterceptor'     : "com.squareup.okhttp3:logging-interceptor:${pomVersion.okhttp}",
 
             // test
