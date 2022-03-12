@@ -1,4 +1,4 @@
-package com.xianyu.common.utils
+package com.xianyu.common.ui
 
 import com.xianyu.common.AppGlobals
 

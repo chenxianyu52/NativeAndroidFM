@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -16,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.xianyu.common.nav.AppConfig;
 import com.xianyu.common.nav.Destination;
-import com.xianyu.common.utils.DisplayUtil;
+import com.xianyu.common.ui.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -14,6 +14,8 @@ import android.util.Log
 import android.view.View
 import android.view.View.MeasureSpec
 import android.widget.ScrollView
+import com.xianyu.common.ui.DisplayUtil
+import com.xianyu.common.ui.ScreenUtils
 
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream

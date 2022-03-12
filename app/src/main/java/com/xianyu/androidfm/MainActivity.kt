@@ -36,10 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         val helloRepository: HelloRepository? by injectOrNull()
         findViewById<TextView>(R.id.text).text = helloRepository?.giveHello()
-        val json = "{\"name\": \"BeJson\",\"age\": 88}"
-        val json2 = "{\"age\": 88}"
-        val bean = JSON.parseObject(json2,Bean1::class.java)
-        LoggerUtil.d("cxy","name : ${bean.name},age:${bean.age}")
+//        val json = "{\"name\": \"BeJson\",\"age\": 88}"
+//        val json2 = "{\"age\": 88}"
+//        val bean = JSON.parseObject(json2,Bean1::class.java)
+//        LoggerUtil.d("cxy","name : ${bean.name},age:${bean.age}")
     }
 
     override fun onStart() {
