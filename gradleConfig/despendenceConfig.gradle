@@ -38,8 +38,10 @@ ext {
             // test
             'androidxEspresso'        : "3.2.0",
             'androidxJunit'           : "1.1.1",
-            'junit'                   : "4.+"
+            'junit'                   : "4.+",
 
+            // pullLayout
+            'pullLoadLayout'          : "1.0.4"
 
     ]
 
@@ -91,6 +93,9 @@ ext {
             // test
             'androidxEspresso'             : "androidx.test.espresso:espresso-core:${pomVersion.androidxEspresso}",
             'androidxJunit'                : "androidx.test.ext:junit:${pomVersion.androidxJunit}",
-            'junit'                        : "junit:junit:${pomVersion.junit}"
+            'junit'                        : "junit:junit:${pomVersion.junit}",
+
+            // pull
+            'SwipeToLoadLayout'            : "com.github.Aspsine:SwipeToLoadLayout:${pomVersion.pullLoadLayout}"
     ]
 }

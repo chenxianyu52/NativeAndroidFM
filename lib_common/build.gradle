@@ -49,5 +49,6 @@ dependencies {
     implementation dependenceConfig.androidxNavigationKtx
     implementation dependenceConfig.XXPermissions
     implementation dependenceConfig.logger
+    api dependenceConfig.SwipeToLoadLayout
     api dependenceConfig.fastjson
 }

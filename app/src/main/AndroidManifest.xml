@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.NativeAndroidFM">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityPull"
             android:label="@string/title_activity_main2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
