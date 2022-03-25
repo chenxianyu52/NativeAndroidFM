@@ -5,9 +5,9 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.xianyu.androidlibrary.AppGlobals;
 import com.xianyu.common.ui.bottom.BottomBar;
 import com.xianyu.common.ui.bottom.BottomBarTab;
-import com.xianyu.common.AppGlobals;
 
 import java.io.BufferedReader;
 import java.io.IOException;

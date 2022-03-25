@@ -1,6 +1,6 @@
 package com.xianyu.net.cache
 
-import com.xianyu.common.AppGlobals
+import com.xianyu.androidlibrary.AppGlobals
 import com.xianyu.net.util.NetworkUtil
 import okhttp3.*
 import java.io.IOException

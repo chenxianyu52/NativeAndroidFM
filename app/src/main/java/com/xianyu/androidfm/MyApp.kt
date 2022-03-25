@@ -1,7 +1,7 @@
 package com.xianyu.androidfm
 
 import android.app.Application
-import com.xianyu.common.log.LoggerUtil
+import com.xianyu.androidlibrary.log.LoggerUtil
 import com.xianyu.route.ARouterUtil
 import com.xianyu.route.koin.KoinUtil
 

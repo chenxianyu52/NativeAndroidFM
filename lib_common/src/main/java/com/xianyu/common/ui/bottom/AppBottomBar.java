@@ -13,9 +13,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+import com.xianyu.androidlibrary.utils.DisplayUtil;
 import com.xianyu.common.nav.AppConfig;
 import com.xianyu.common.nav.Destination;
-import com.xianyu.common.ui.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package com.xianyu.net;
 
-import com.xianyu.common.AppGlobals;
+import com.xianyu.androidlibrary.AppGlobals;
 
 import java.io.File;
 import java.security.KeyManagementException;
@@ -20,7 +20,6 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 
-import com.xianyu.common.log.LoggerUtil;
 import com.xianyu.net.cache.FixCacheInterceptor;
 
 import okhttp3.logging.HttpLoggingInterceptor;

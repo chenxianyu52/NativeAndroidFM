@@ -47,8 +47,7 @@ dependencies {
     implementation dependenceConfig.androidxLifecycleViewmodel
     implementation dependenceConfig.androidxNavigationFragmentKtx
     implementation dependenceConfig.androidxNavigationKtx
-    implementation dependenceConfig.XXPermissions
-    implementation dependenceConfig.logger
-    api dependenceConfig.SwipeToLoadLayout
+    implementation project(path: ':lib_androidlibrary')
+    api project(path: ':lib_androidlibrary')
     api dependenceConfig.fastjson
 }

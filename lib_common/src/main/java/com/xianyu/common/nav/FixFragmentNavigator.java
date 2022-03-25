@@ -16,8 +16,6 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigator;
 import androidx.navigation.fragment.FragmentNavigator;
 
-import com.xianyu.common.nav.Destination;
-
 import java.lang.reflect.Field;
 import java.util.ArrayDeque;
 import java.util.Map;

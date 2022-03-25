@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.xianyu.common.log.LoggerUtil;
+import com.xianyu.androidlibrary.log.LoggerUtil;
 
 public class DemoFrameLayout extends FrameLayout {
     public DemoFrameLayout(@NonNull Context context) {

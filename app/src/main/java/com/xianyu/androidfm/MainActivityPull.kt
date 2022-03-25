@@ -5,9 +5,9 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.xianyu.common.ui.pull.NewSwipeToLoadLayout
-import com.xianyu.common.ui.pull.OnNewLoadMoreListener
-import com.xianyu.common.ui.pull.OnNewRefreshListener
+import com.xianyu.androidlibrary.pull.NewSwipeToLoadLayout
+import com.xianyu.androidlibrary.pull.OnNewLoadMoreListener
+import com.xianyu.androidlibrary.pull.OnNewRefreshListener
 import java.util.*
 
 

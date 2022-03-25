@@ -1,6 +1,6 @@
 package com.xianyu.net
 
-import com.xianyu.common.AppGlobals
+import com.xianyu.androidlibrary.AppGlobals
 import com.xianyu.net.cache.FixCacheInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
