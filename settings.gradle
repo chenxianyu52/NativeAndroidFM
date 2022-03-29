@@ -13,3 +13,30 @@ include ':lib_common'
 include ':module_aop'
 include ':app'
 rootProject.name = "NativeAndroidFM"
+
+println(rootProject.name + "settings.gradle")
+
+// 监听gradle 生命周期的接口  gradlew clean -q (-q 是打印日志级别，说明只打印println)
+gradle.addBuildListener(new BuildAdapter(){
+    @Override
+    void settingsEvaluated(Settings settings) {
+        super.settingsEvaluated(settings)
+        println(rootProject.name + "初始化阶段完成")
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+        super.projectsEvaluated(gradle)
+        println(rootProject.name + "配置阶段完成")
+        gradle.rootProject.childProjects.each {
+            name,p->
+                println("子工程名称是 $name ,路径是 ${p.getProjectDir()}")
+        }
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        super.buildFinished(result)
+        println(rootProject.name + "构建结束")
+    }
+})

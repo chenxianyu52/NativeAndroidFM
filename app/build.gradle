@@ -80,3 +80,19 @@ dependencies {
     implementation project(path: ':lib_performance')
     kapt dependenceConfig.arouterCompile
 }
+
+println(rootProject.name + "app build.gradle")
+
+task testTask(){
+    doLast {
+        println(rootProject.name + "app 任务 testTask")
+    }
+}
+
+// 创建依赖关系
+task testTask2(){
+    dependsOn testTask
+    doLast {
+        println(rootProject.name + "app 任务 testTask2")
+    }
+}

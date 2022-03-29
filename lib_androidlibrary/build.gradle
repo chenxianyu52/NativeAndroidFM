@@ -45,3 +45,5 @@ dependencies {
     implementation dependenceConfig.logger
     api dependenceConfig.SwipeToLoadLayout
 }
+
+apply from : rootProject.file("GradleTips/maven-publish.gradle")
