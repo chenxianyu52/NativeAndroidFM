@@ -6,6 +6,7 @@ ext {
             'androidxCoreKtx'         : "1.2.0",
             'androidxLifecycle'       : "2.2.0",
             'androidxNavigation'      : "2.2.2",
+            'androidxAppcompat'       : "1.3.1",
             'room'                    : "1.1.1",
 
             // google
@@ -50,6 +51,7 @@ ext {
             'androidxAppcompat'            : "androidx.appcompat:appcompat:${pomVersion.androidxAppcompat}",
             'androidxConstraintlayout'     : "androidx.constraintlayout:constraintlayout:${pomVersion.androidxConstraintlayout}",
             'androidxCoreKtx'              : "androidx.core:core-ktx:${pomVersion.androidxCoreKtx}",
+            'androidxAppcompat'            : "androidx.appcompat:appcompat:${pomVersion.androidxAppcompat}",
             'androidxLifecycleLivedata'    : "androidx.lifecycle:lifecycle-livedata-ktx:${pomVersion.androidxLifecycle}",
             'androidxLifecycleViewmodel'   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${pomVersion.androidxLifecycle}",
             'androidxNavigationFragment'   : "androidx.navigation:navigation-fragment:${pomVersion.androidxNavigation}",

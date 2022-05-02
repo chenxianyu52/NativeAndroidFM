@@ -7,7 +7,7 @@ import com.xianyu.annotation.BottomTabAnnotation
     enable = true,
     index = 2,
     pageUrl = "main/tabs/notification",
-    title = "我的",
+    title = "通知",
     icon = "ic_notifications_black_24dp"
 )
 class NotificationTab {

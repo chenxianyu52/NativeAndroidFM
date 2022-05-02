@@ -22,6 +22,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName(), AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath true
             }
         }
     }

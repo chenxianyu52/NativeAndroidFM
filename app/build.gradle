@@ -5,6 +5,9 @@ plugins {
 //apply plugin: 'android-aspectjx'
 apply plugin: 'kotlin-kapt'
 
+// 应用我们的 路由插件
+apply plugin: 'com.xianyu.module'
+
 def config = rootProject.ext.androidVersion
 def dependenceConfig = rootProject.ext.pomPath
 
@@ -25,6 +28,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [moduleName: project.getName(), AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath true
             }
         }
     }
@@ -75,8 +79,10 @@ dependencies {
     implementation project(path: ':module_home')
     implementation project(path: ':module_dash')
     implementation project(path: ':module_notification')
+//    implementation project(path: ':module_my')
     implementation project(path: ':lib_common')
     implementation project(path: ':lib_route')
+    implementation project(path: ':lib_net')
     implementation project(path: ':lib_performance')
     kapt dependenceConfig.arouterCompile
 }

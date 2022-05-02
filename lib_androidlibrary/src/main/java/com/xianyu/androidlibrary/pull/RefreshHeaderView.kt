@@ -7,8 +7,8 @@ import com.aspsine.swipetoloadlayout.SwipeTrigger
 
 // todo 需要做可配置
 class RefreshHeaderView : androidx.appcompat.widget.AppCompatTextView, SwipeRefreshTrigger, SwipeTrigger {
-    constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context) : super(context) {}
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
 
     override fun onRefresh() {
         text = "REFRESHING"

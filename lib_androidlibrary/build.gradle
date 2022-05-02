@@ -40,6 +40,8 @@ dependencies {
     implementation dependenceConfig.kotlinStdlib
     implementation dependenceConfig.androidxCoreKtx
     implementation dependenceConfig.androidxAppcompat
+    implementation dependenceConfig.androidxAppcompat
+    implementation dependenceConfig.googleMaterial
     implementation project(path: ':lib_javalibrary')
     implementation dependenceConfig.XXPermissions
     implementation dependenceConfig.logger

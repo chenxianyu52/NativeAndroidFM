@@ -14,6 +14,8 @@ import com.xianyu.annotation.FragmentDestination
 import com.xianyu.net.ApiResponse
 import com.xianyu.net.ApiService
 import com.xianyu.net.JsonCallback
+import com.xianyu.route.homemodule.HelloRepository
+import com.xianyu.route.koin.injectOrNull
 import kotlinx.coroutines.MainScope
 
 @FragmentDestination(pageUrl = "main/tabs/home", asStarter = true)
@@ -42,8 +44,9 @@ class HomeFragment : Fragment() {
                 }
             })
         }
+        val helloRepository: HelloRepositoryImpl? by injectOrNull()
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            textView.text = helloRepository?.giveHello()
         })
 
 //        scope.launch {

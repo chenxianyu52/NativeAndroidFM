@@ -44,7 +44,7 @@ dependencies {
     api dependenceConfig.androidRoom
     implementation dependenceConfig.kotlinCoroutinesCore
     implementation dependenceConfig.kotlinCoroutinesAndroid
-//    implementation dependenceConfig.retrofit
-//    implementation dependenceConfig.retrofitGson
+    implementation dependenceConfig.retrofit
+    implementation dependenceConfig.retrofitGson
     implementation dependenceConfig.okhttpLoggingInterceptor
 }
