@@ -64,7 +64,7 @@ dependencies {
     implementation project(path: ':lib_compiler')//需要使用lib_compiler中的fastjson
     implementation project(path: ':lib_route')
     implementation project(path: ':lib_net')
-    implementation project(path: ':lib_androidlibrary')
+    implementation 'com.github.chenxianyu52:lib_androidlibrary:v0.0.2'
     kapt dependenceConfig.arouterCompile
     kapt project(path: ':lib_compiler')
 }

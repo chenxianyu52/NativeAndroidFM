@@ -47,7 +47,6 @@ dependencies {
     implementation dependenceConfig.androidxLifecycleViewmodel
     implementation dependenceConfig.androidxNavigationFragmentKtx
     implementation dependenceConfig.androidxNavigationKtx
-    implementation project(path: ':lib_androidlibrary')
-    api project(path: ':lib_androidlibrary')
+    api 'com.github.chenxianyu52:lib_androidlibrary:v0.0.2'
     api dependenceConfig.fastjson
 }

@@ -84,6 +84,7 @@ dependencies {
     implementation project(path: ':lib_route')
     implementation project(path: ':lib_net')
     implementation project(path: ':lib_performance')
+    implementation 'com.github.chenxianyu52:lib_androidlibrary:v0.0.2'
     kapt dependenceConfig.arouterCompile
 }
 
