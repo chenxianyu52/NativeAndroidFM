@@ -47,6 +47,11 @@ dependencies {
     implementation dependenceConfig.androidxLifecycleViewmodel
     implementation dependenceConfig.androidxNavigationFragmentKtx
     implementation dependenceConfig.androidxNavigationKtx
-    api 'com.github.chenxianyu52:lib_androidlibrary:v0.0.2'
+//    api 'com.xianyu.lib:lib_androidlibrary:1.0.1'
+//    implementation 'com.github.chenxianyu52:lib_androidlibrary:v0.0.2'
+
+    api 'com.github.chenxianyu52.lib_androidlibrary:lib_androidlibrary:v1.0.4'
+    api 'com.github.chenxianyu52.lib_androidlibrary:otherlib:v1.0.4'
+//    debugImplementation 'com.github.niuxiaowei.LayoutInspector:layoutinspector:2.0.1'
     api dependenceConfig.fastjson
 }

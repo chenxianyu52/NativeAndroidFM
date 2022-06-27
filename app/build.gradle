@@ -33,12 +33,27 @@ android {
         }
     }
 
-    buildTypes {
+    signingConfigs{
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            storeFile file("/Users/chenxianyu/Documents/keys/nativeAndroidFm.jks")
+            storePassword "loveaini0714"
+            keyAlias "xiaogali"
+            keyPassword "loveaini0714"
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+            minifyEnabled false
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -82,9 +97,9 @@ dependencies {
 //    implementation project(path: ':module_my')
     implementation project(path: ':lib_common')
     implementation project(path: ':lib_route')
-    implementation project(path: ':lib_net')
     implementation project(path: ':lib_performance')
-    implementation 'com.github.chenxianyu52:lib_androidlibrary:v0.0.2'
+//    implementation 'com.xianyu.lib:lib_androidlibrary:1.0.1'
+    implementation 'com.github.chenxianyu52.lib_androidlibrary:lib_androidlibrary:v1.0.4'
     kapt dependenceConfig.arouterCompile
 }
 

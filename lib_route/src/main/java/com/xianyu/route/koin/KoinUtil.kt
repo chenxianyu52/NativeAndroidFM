@@ -51,7 +51,10 @@ object KoinUtil {
                 LoggerUtil.i(TAG, "init: get all set:")
                 allMapping.onEach {
                     LoggerUtil.i(TAG, it.key + " -> " + it.value)
+                    val tt = ARouter.getInstance().build(it.key).navigation()
+                    LoggerUtil.i(TAG, "tt is null?: " + (tt == null))
                     val module = ARouter.getInstance().build(it.key).navigation() as ModuleGenerate?
+                    LoggerUtil.i(TAG, "module is null?: " + (module == null))
                     module?.initModule()
 //                    (it as? String)?.let { it1 -> mapping.add(it1) }
                 }

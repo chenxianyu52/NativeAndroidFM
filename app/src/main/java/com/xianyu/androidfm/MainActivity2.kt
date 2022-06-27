@@ -15,6 +15,7 @@ import com.xianyu.common.ui.bottom.AppBottomBar
 import com.xianyu.common.nav.NavGraphBuilder
 import java.lang.ref.SoftReference
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity2 : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -59,6 +60,12 @@ class MainActivity2 : AppCompatActivity(), BottomNavigationView.OnNavigationItem
             list.add("test$i")
         }
         LoggerUtil.dObject("MainActivity2",list)
+
+        // 强制让应用crash
+//        val list2:MutableList<String>? = null
+//        LoggerUtil.dObject("MainActivity2", list2!![0])
+
+
 
         val map: MutableMap<String, String> = HashMap()
         for (i in 0..4) {

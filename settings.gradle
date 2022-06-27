@@ -1,6 +1,4 @@
-include ':lib_mvp'
 include ':lib_performance'
-include ':lib_net'
 include ':module_notification'
 include ':module_dash'
 include ':lib_route'
